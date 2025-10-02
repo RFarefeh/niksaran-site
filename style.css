@@ -1,0 +1,655 @@
+
+
+/* 📌 IRANSans (از CDN فارسی) */
+@font-face {
+  font-family: 'IRANSans';
+  src: url('https://cdn.fontcdn.ir/Fonts/iransans/IRANSans.woff2') format('woff2'),
+       url('https://cdn.fontcdn.ir/Fonts/iransans/IRANSans.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 🖋 انتخاب فونت بر اساس زبان */
+body[dir="rtl"] {
+  font-family: 'IRANSans', Tahoma, sans-serif;
+  line-height: 1.9;
+}
+
+body[dir="ltr"] {
+  font-family: 'Open Sans', Arial, sans-serif;
+  line-height: 1.8;
+}
+
+/* 🎯 بهینه‌سازی ظاهر */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin: 1rem 0 0.5rem;
+}
+
+p {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+}
+
+
+
+
+
+/* 🎨 متغیرهای رنگ */
+:root {
+  --bg-color: #f4f7fb;
+  --text-color: #1a1a1a;
+  --header-bg: #0f172a;   /* آبی خیلی تیره */
+  --header-text: #ffffff;
+  --primary: #072e82;    /* آبی پررنگ */
+  --accent: #38bdf8;     /* فیروزه‌ای روشن */
+  --card-bg: #ffffff;
+}
+
+body.dark-mode {
+  --bg-color: #0a0f1c;
+  --text-color: #e2e8f0;
+  --header-bg: #1e293b;
+  --header-text: #f1f5f9;
+  --primary: #0b57b5;
+  --accent: #22d3ee;
+  --card-bg: #111827;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* 🎯 کلیات */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  line-height: 1.8;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+  overflow-x: hidden;
+}
+
+/* 🔹 هدر */
+/* استایل کلی هدر */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0a1a2f;
+  padding: 10px 20px;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* لوگو */
+header .logo img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* منو */
+header nav {
+  display: flex;
+  gap: 20px;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+header nav a:hover {
+  color: #00c3ff;
+}
+
+/* اکشن‌ها (دکمه زبان و تم) */
+header .actions button {
+  margin-left: 10px;
+  padding: 5px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #1e2b45;
+  color: #fff;
+}
+
+/* دکمه همبرگری فقط موبایل */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* 📱 حالت موبایل */
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+  }
+
+  /* لوگو کوچیک‌تر */
+  header .logo img {
+    height: 40px;
+  }
+
+  /* منو مخفی به صورت پیش‌فرض */
+  header nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #0a1a2f;
+    padding: 10px 0;
+  }
+
+  header nav a {
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid #1e2b45;
+  }
+
+  /* نمایش دکمه همبرگری */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* وقتی فعال شد */
+  header nav.active {
+    display: flex;
+  }
+}
+
+
+.lang-switch button,
+#theme-toggle {
+  background: transparent;
+  border: 2px solid var(--accent);
+  border-radius: 6px;
+  padding: 3px 8px;
+  color: var(--primary);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.lang-switch button:hover,
+#theme-toggle:hover {
+  background: var(--accent);
+  color: #fff;
+}
+.lang-switch .active-lang {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* 🔹 بخش بنر */
+.hero {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--header-bg);
+  color: #fff;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.swiper {
+  width: 100%;
+  height: 565px; /* ارتفاع بنر */
+  object-fit: cover;
+}
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px; /* گوشه‌های گرد (اختیاری) */
+  margin: 0 auto;
+}
+
+/* فلش‌ها */
+.swiper-button-next,
+.swiper-button-prev {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: scale(1.1);
+}
+/* حذف فلش پیش‌فرض Swiper */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  display: none;
+}
+/* آیکن Font Awesome */
+.swiper-button-next::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f105"; /* فلش راست */
+  font-size: 20px;
+  color: #fff;
+}
+.swiper-button-prev::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f104"; /* فلش چپ */
+  font-size: 20px;
+  color: #fff;
+}
+
+
+
+.hero-text h1 {
+  font-size: clamp(20px, 4vw, 36px);
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  font-size: clamp(14px, 2.5vw, 18px);
+  margin-bottom: 20px;
+}
+
+.hero-text .btn {
+  background:linear-gradient(90deg, #00c4d6, #007082);
+  padding: 12px 28px;
+  color: #0A3D5C;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.hero-text .btn:hover {
+  background: #22d3ee;
+  transform: translateY(-3px);
+}
+
+.hero-img img {
+  display: block;
+  width: 100%;
+  height: auto;  /* تناسب حفظ بشه */
+  border-radius: 8px;
+  transition: filter 0.3s ease; /* انیمیشن نرم */
+}
+
+/* 🔹 در دارک‌مد یک overlay اضافه کن */
+body.dark-mode .hero-img::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);  /* نیمه‌شفاف */
+  pointer-events: none; /* روی کلیک‌ها اثر نذاره */
+  border-radius: inherit;
+}
+
+/* 🔹 درباره ما */
+.about {
+  padding: 20px 20px;
+  text-align: center;
+  
+}
+.about h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color:linear-gradient(90deg, #00c4d6, #007082);
+  
+}
+.about p {
+  max-width: 800px;
+  margin: 0 auto 25px auto;
+}
+.about-list {
+  list-style: none;
+  padding: 0;
+}
+.about-list li {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+/* 🔹 محصولات */
+.products {
+ 
+  background: var(--bg-color);
+  text-align: center;
+}
+.products h2 {
+  font-size: 28px;
+  margin-bottom: 40px;
+  color: linear-gradient(90deg, #00c4d6, #007082);
+  padding: 0px 60px;
+  box-sizing: border-box;
+  border-radius: 5px;
+
+
+}
+.product-grid {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.product {
+  background:var(--card-bg);
+  padding: 25px;
+  border-radius: 12px;
+  width: 280px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.product:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+.product img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+.product h3 {
+  margin: 10px 0;
+  color: linear-gradient(90deg, #00c4d6, #007082);
+}
+.product a {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  color:#007082;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+.product a:hover {
+  color:#22d3ee;
+}
+
+
+/* 🔹 کاتالوگ */
+
+/* 🎨 Default Style */
+.catalog {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.btn-download {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 24px;
+  background: #004080;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.btn-download:hover {
+  background: #0066cc;
+}
+
+/* 🌞 Light Mode */
+body.light {
+  background: #ffffff;
+  color: #222;
+}
+body.light header,
+body.light .navbar {
+  background: #004080;
+  color: #fff;
+}
+
+/* 🌙 Dark Mode */
+body.dark {
+  background: #121212;
+  color: #eee;
+}
+body.dark header,
+body.dark .navbar {
+  background: #222;
+  color: #eee;
+}
+body.dark .btn-download {
+  background: #444;
+  color: #eee;
+}
+body.dark .btn-download:hover {
+  background: #666;
+}
+
+
+/* 🔹 فوتر */
+footer {
+  background: var(--header-bg);
+  color: var(--header-text);
+  text-align: center;
+  padding: 25px 15px;
+  margin-top: 40px;
+  font-size: 14px;
+  border-top: 2px solid var(--accent); /* خط باریک بالا */
+}
+
+footer a {
+  color: var(--header-text);
+  text-decoration: none;
+  margin: 0 6px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.3s, transform 0.2s;
+}
+
+footer a:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* شماره تلفن همیشه چپ به راست */
+footer .phone {
+  direction: ltr;
+  unicode-bidi: bidi-override;
+  display: inline-block;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+/* 🎨 استایل فوتر */
+.site-footer {
+  background: #111;            /* پس‌زمینه تیره */
+  color: #eee;                 /* متن روشن */
+  text-align: center;          /* وسط‌چین */
+  padding: 1rem 0;             /* فاصله داخلی */
+  font-size: 0.9rem;           /* سایز متن */
+  border-top: 2px solid #444;  /* خط بالای فوتر */
+}
+
+/* لینک‌ها در فوتر */
+.site-footer a {
+  color: #4da3ff;
+  text-decoration: none;
+}
+.site-footer a:hover {
+  text-decoration: underline;
+}
+/* 📱 ریسپانسیو */
+
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  .product {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+@media (max-width: 576px) {
+  .hero { min-height:40vh; padding: 30px 10px; }
+  .hero h1 { font-size: 1.4rem; }
+  .hero p { font-size: 0.9rem; }
+  .btn {padding: 6px 12px;}
+}
+/* 📱 موبایل */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 70vh;
+    background-size: contain;  /* کل عکس */
+    background-position: center top; 
+  }
+}
+
+/* 📱 خیلی کوچیک (زیر 480px) */
+@media (max-width: 480px) {
+  .hero {
+    min-height: 60vh;
+    padding: 10px;
+    background-size: contain;
+    background-position: center top;
+  }
+}
+
+
+/* ====== بخش جزئیات محصول ====== */
+.product-detail {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.product-detail img {
+  display: block;
+  margin: 0 auto 30px auto;
+  max-width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.product-detail img:hover {
+  transform: scale(1.05);
+}
+
+/* عنوان بخش‌ها */
+.product-detail h2 {
+  font-size: 22px;
+  margin: 25px 0 15px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #00c4d6, #007082);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-bottom: 2px solid #00c4d6;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+}
+
+
+/* توضیحات */
+.product-detail p {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+/* لیست ویژگی‌ها و کاربردها */
+.product-detail ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.product-detail ul li {
+  margin: 12px 0;
+  padding: 10px 15px;
+  background: rgba(0, 196, 214, 0.08);
+  border-radius: 8px;
+  position: relative;
+  font-size: 1rem;
+  line-height: 1.6;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.product-detail ul li:hover {
+  background: rgba(0, 196, 214, 0.15);
+  transform: translateX(-5px);
+}
+
+/* تیک حرفه‌ای */
+body[dir="rtl"] .product-detail ul li::before {
+  content: "✔";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color:rgba(0, 196, 214, 0.08);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+body[dir="ltr"] .product-detail ul li::before {
+  content: "✔";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* 🎨 دکمه بازگشت حرفه‌ای */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;                /* فاصله بین آیکون و متن */
+  margin-bottom: 25px;
+  padding: 8px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #007082;
+  background: #b8dbe0;     /* پس‌زمینه خیلی روشن */
+  border: 2px solid #007082;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.back-btn::before {
+           /* فلش برگشت */
+  font-size: 16px;
+}
+
+.back-btn:hover {
+  background: #007082;
+  color: #fff;
+  transform: translateX(-4px); /* حرکت نرم به چپ */
+  box-shadow: 0 4px 12px rgba(0, 112, 130, 0.3);
+}

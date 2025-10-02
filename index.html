@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>BMS & IoT</title>
+  <!-- 📌 درست: از Flask static -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <!-- 🔹 هدر -->
+  <header>
+    <div class="logo">
+      <img id="logo-img" src="/static/images/logo.png" alt="logo">
+    </div>
+  
+    <!-- دکمه منو همبرگری برای موبایل -->
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+  
+    <!-- منوی اصلی -->
+    <nav id="nav-menu">
+      <a href="#home" data-key="menu_home">خانه</a>
+      <a href="#about" data-key="menu_about">درباره ما</a>
+      <a href="#products" data-key="menu_products">محصولات</a>
+      <a href="#catalog" data-key="menu_catalog">کاتالوگ</a>
+      <a href="#contact" data-key="menu_contact">تماس با ما</a>
+    </nav>
+  
+    <div class="actions">
+      <button id="lang-toggle" onclick="toggleLang()">English</button>
+      <button id="theme-toggle">🌙</button>
+    </div>
+  </header>
+  
+
+  <!-- 🔹 بنر اصلی -->
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <h1 data-key="hero_title">هوشمندسازی و کنترل سیستم‌های تهویه و تبرید</h1>
+      <p data-key="hero_text">راهکارهای مدرن بر پایه اینترنت اشیا (IoT)</p>
+      <a href="#products" class="btn" data-key="hero_btn">مشاهده محصولات</a>
+    </div>
+  
+    <!-- 🔹 Swiper Container -->
+
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper" id="slider-images">
+        <!-- عکس‌ها اینجا با جاوااسکریپت ساخته میشن -->
+      </div>
+
+      <!-- ناوبری -->
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+
+
+  </section>
+  
+  
+
+  <!-- 🔹 معرفی -->
+  <section id="about" class="about">
+    <!-- عنوان اصلی -->
+    <h2 data-key="about_title">درباره ما</h2>
+    <p data-key="about_text">
+      شرکت ما با تمرکز بر هوشمندسازی، اتوماسیون صنعتی و کنترل سیستم‌های تهویه مطبوع (HVAC) فعالیت خود را آغاز کرده و طی سال‌های اخیر موفق به اجرای پروژه‌های متنوع در حوزه‌های مختلف شده است. مأموریت ما ارائه‌ی راهکارهای نوین جهت کاهش مصرف انرژی، افزایش بهره‌وری تجهیزات، و ارتقای کیفیت زندگی و کار در محیط‌های صنعتی و ساختمانی است.
+    </p>
+  
+    <!-- حوزه‌های تخصصی -->
+    <h2 data-key="about_subtitle1">حوزه‌های تخصصی ما</h2>
+    <ul class="about-list">
+      <li data-key="about_list1_item1">طراحی و اجرای سیستم‌های مدیریت ساختمان (BMS)</li>
+      <li data-key="about_list1_item2">کنترل و مانیتورینگ تجهیزات تهویه مطبوع شامل چیلرها، هواسازها و فن‌ها</li>
+      <li data-key="about_list1_item3">توسعه و پشتیبانی از سری بردهای هوشمند (X7 Series) با پشتیبانی از Modbus، MQTT و IoT</li>
+      <li data-key="about_list1_item4">طراحی داشبوردهای وب و اپلیکیشن‌های مانیتورینگ و کنترل تجهیزات</li>
+      <li data-key="about_list1_item5">مشاوره، طراحی و اجرای پروژه‌های اتوماسیون صنعتی</li>
+    </ul>
+  
+    <!-- مزایا -->
+    <h2 data-key="about_subtitle2">مزایای ما</h2>
+    <ul class="about-list">
+      <li data-key="about_list2_item1">استفاده از جدیدترین تکنولوژی‌های روز دنیا در زمینه اتوماسیون و اینترنت اشیا</li>
+      <li data-key="about_list2_item4">تجربه موفق همکاری در پروژه‌های صنعتی و ساختمانی بزرگ</li>
+      <li data-key="about_list2_item2">تیم متخصص متعهد و با تجربه</li>
+      <li data-key="about_list2_item3">پشتیبانی سریع و قابل اعتماد</li>
+      
+    </ul>
+  
+    <!-- چشم‌انداز -->
+    <h2 data-key="about_subtitle3">چشم‌انداز ما</h2>
+    <p data-key="about_text2">
+      چشم‌انداز شرکت تبدیل‌شدن به یکی از پیشروترین مجموعه‌ها در حوزه هوشمندسازی و مدیریت انرژی در خاورمیانه است. ما باور داریم آینده صنعت و ساختمان در گروی استفاده از راهکارهای هوشمند و پایدار است و در این مسیر همواره در کنار مشتریان خود خواهیم بود. 
+    </p>
+  </section>
+  
+  <!-- 🔹 محصولات -->
+  <section id="products" class="products">
+    <h2 data-key="products_title">محصولات ما</h2>
+    <div class="product-grid">
+      <div class="product">
+        <img src="{{ url_for('static', filename='images/p1.png') }}" alt="X7-A Board">
+        <h3 data-key="p1_title">X7 Server</h3>
+        <p data-key="p1_text">گیت‌وی هوشمند اینترنت اشیاء با پشتیبانی از Modbus و MQTT</p>
+        <a href="/product/x7" data-key="details">مشاهده جزئیات</a>
+      </div>
+      <div class="product">
+        <img src="{{ url_for('static', filename='images/X7A.png') }}" alt="X7-A Board">
+        <h3 data-key="p2_title">X7-A Smart IoT Board</h3>
+        <p data-key="p2_text"> اتوماسیون صنعتی، سیستم‌های BMS و کنترل تجهیزات HVAC     </p>
+        <a href="/product/x7a" data-key="details">مشاهده جزئیات</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 🔹 کاتالوگ -->
+  <section id="catalog" class="catalog">
+    <h2 data-key="catalog_title">📘 کاتالوگ شرکت</h2>
+    <p data-key="catalog_text">
+      برای مشاهده یا دانلود کاتالوگ شرکت از گزینه‌های زیر استفاده کنید:
+    </p>
+    <a href="{{ url_for('static', filename='catalog.pdf') }}" 
+       target="_blank" 
+       class="btn-download" 
+       data-key="catalog_btn">📘 دانلود کاتالوگ</a>
+  </section>
+  
+  
+
+  <!-- 🔹 فوتر -->
+  <footer id="contact">
+    <p data-key="contact">
+      تماس: 
+      <a href="mailto:ehsansheikhy@gmail.com"><i class="fa-solid fa-envelope"></i> ehsansheikhy@gmail.com</a> | 
+      <a href="tel:+989123085827" class="phone"><i class="fa-solid fa-mobile-screen"></i> +98-912-308-5827</a> | 
+      <a href="tel:+982122076977" class="phone"><i class="fa-solid fa-phone"></i> +98-21-22076977</a> | 
+      <a href="https://www.linkedin.com/in/ehsan-sheikhy/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a> | 
+      <a href="https://www.instagram.com/yourusername" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+    </p>
+    <p data-key="footer_text">© 2025 NIK SARAN. All rights reserved.</p>
+  </footer>
+  
+  
+  
+
+  <!-- 📌 جاوااسکریپت -->
+  <script src="{{ url_for('static', filename='lang.js') }}"></script>
+  
+</body>
+</html>

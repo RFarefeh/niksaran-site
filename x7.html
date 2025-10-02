@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title data-key="p1_title">X7 Server</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+  <!-- 🔹 هدر (مشترک) -->
+  <header>
+    <div class="logo">
+      <img id="logo-img" src="/static/images/logo.png" alt="logo">
+    </div>
+  
+    <!-- دکمه منو همبرگری برای موبایل -->
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+  
+    <!-- منوی اصلی -->
+    <nav id="nav-menu">
+      <a href="/" data-key="menu_home">خانه</a>
+      <a href="/#about" data-key="menu_about">درباره ما</a>
+      <a href="/#products" data-key="menu_products">محصولات</a>
+      <a href="/#catalog" data-key="menu_catalog">کاتالوگ</a>
+      <a href="#contact" data-key="menu_contact">تماس با ما</a>
+    </nav>
+  
+    <div class="actions">
+      <button id="lang-toggle" onclick="toggleLang()">English</button>
+      <button id="theme-toggle">🌙</button>
+    </div>
+  </header>
+  
+
+  <!-- 🔹 محتوای محصول -->
+  <main class="product-detail">
+    <a href="/" class="back-btn" data-key="back">⬅ بازگشت به محصولات</a>
+
+    <img src="{{ url_for('static', filename='images/p1.png') }}" alt="X7 Server Board">
+
+    <section>
+      <h2 data-key="desc_title">توضیحات</h2>
+      <p data-key="p1_desc">
+        برد X7 Server یک گیت‌وی هوشمند برای اینترنت اشیاء (IoT Gateway) است که امکان اتصال تجهیزات صنعتی و ساختمانی 
+        به شبکه اینترنت و پروتکل‌های ارتباطی مختلف را بدون نیاز به IP استاتیک فراهم می‌سازد.
+      </p>
+    </section>
+
+    <section>
+      <h2 data-key="features_title">ویژگی‌ها</h2>
+      <ul>
+        <li data-key="p1_feature1">دو پورت RS485 برای ارتباط Modbus RTU</li>
+        <li data-key="p1_feature2">درگاه اترنت (Ethernet) برای اتصال مستقیم به شبکه</li>
+        <li data-key="p1_feature3">درگاه USB (برای توسعه‌های آتی)</li>
+        <li data-key="p1_feature4">پشتیبانی از پروتکل MQTT برای ارسال داده به سرورهای ابری</li>
+        <li data-key="p1_feature5">قابلیت Access Point داخلی با آدرس 192.168.4.1</li>
+        <li data-key="p1_feature6">تغذیه: 9–24V DC، جریان 1A</li>
+        <li data-key="p1_feature7">نصب روی ریل تابلو برق</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 data-key="apps_title">کاربردها</h2>
+      <ul>
+        <li data-key="p1_app1">گیت‌وی ارتباطی برای تجهیزات صنعتی و ساختمانی</li>
+        <li data-key="p1_app2">مانیتورینگ و کنترل چیلرها، هواسازها، فن‌ها و پمپ‌ها</li>
+        <li data-key="p1_app3">انتقال داده به سرورهای ابری بدون نیاز به IP استاتیک</li>
+        <li data-key="p1_app4">اتوماسیون صنعتی و BMS</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- 🔹 فوتر -->
+  <footer id="contact">
+    <p data-key="contact">
+      تماس: 
+      <a href="mailto:ehsansheikhy@gmail.com"><i class="fa-solid fa-envelope"></i> ehsansheikhy@gmail.com</a> | 
+      <a href="tel:+989123085827"><i class="fa-solid fa-phone"></i> +98-912-308-5827</a> | 
+      <a href="https://www.linkedin.com/in/ehsan-sheikhy/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a> | 
+      <a href="https://www.instagram.com/yourusername" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+    </p>
+    <p data-key="footer_text">© 2025 NIK SARAN. All rights reserved.</p>
+  </footer>
+
+  <!-- 📌 جاوااسکریپت -->
+  <script src="{{ url_for('static', filename='lang.js') }}"></script>
+  <script>
+    const translations = {
+  fa: {
+    // --- محصول X7 Server ---
+    p1_title: "X7 Server",
+    p1_desc: "برد X7 Server یک گیت‌وی هوشمند برای اینترنت اشیاء است ...",
+    p1_feature1: "دو پورت RS485 برای ارتباط Modbus RTU",
+    p1_feature2: "درگاه اترنت (Ethernet) برای اتصال مستقیم به شبکه",
+    p1_feature3: "درگاه USB (برای توسعه‌های آتی)",
+    p1_feature4: "پشتیبانی از پروتکل MQTT برای ارسال داده",
+    p1_feature5: "قابلیت Access Point داخلی با آدرس 192.168.4.1",
+    p1_feature6: "تغذیه: 9–24V DC، جریان 1A",
+    p1_feature7: "نصب روی ریل تابلو برق",
+    p1_app1: "گیت‌وی ارتباطی برای تجهیزات صنعتی و ساختمانی",
+    p1_app2: "مانیتورینگ و کنترل چیلرها، هواسازها، فن‌ها و پمپ‌ها",
+    p1_app3: "انتقال داده به سرورهای ابری بدون نیاز به IP استاتیک",
+    p1_app4: "اتوماسیون صنعتی و BMS",
+  },
+
+  en: {
+    // --- Product X7 Server ---
+    p1_title: "X7 Server",
+    p1_desc: "X7 Server is an intelligent IoT Gateway designed to connect industrial and building equipment...",
+    p1_feature1: "Two RS485 ports for Modbus RTU communication",
+    p1_feature2: "Ethernet port for direct network connection",
+    p1_feature3: "USB port (for future expansion)",
+    p1_feature4: "Supports MQTT protocol for cloud data transfer",
+    p1_feature5: "Built-in Access Point at 192.168.4.1",
+    p1_feature6: "Power supply: 9–24V DC, 1A current",
+    p1_feature7: "DIN rail mounting",
+    p1_app1: "Gateway for industrial and building equipment",
+    p1_app2: "Monitoring and control of chillers, AHUs, fans, and pumps",
+    p1_app3: "Cloud data transfer without static IP",
+    p1_app4: "Industrial automation and BMS",
+  }
+};
+
+  </script>
+</body>
+</html>

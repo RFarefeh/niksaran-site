@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title data-key="p1_title">X7-A </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+  <!-- 🔹 هدر (مشترک) -->
+  <header>
+    <div class="logo">
+      <img id="logo-img" src="/static/images/logo.png" alt="logo">
+    </div>
+  
+    <!-- دکمه منو همبرگری برای موبایل -->
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+  
+    <!-- منوی اصلی -->
+    <nav id="nav-menu">
+      <a href="/" data-key="menu_home">خانه</a>
+      <a href="/#about" data-key="menu_about">درباره ما</a>
+      <a href="/#products" data-key="menu_products">محصولات</a>
+      <a href="/#catalog" data-key="menu_catalog">کاتالوگ</a>
+      <a href="#contact" data-key="menu_contact">تماس با ما</a>
+    </nav>
+  
+    <div class="actions">
+      <button id="lang-toggle" onclick="toggleLang()">English</button>
+      <button id="theme-toggle">🌙</button>
+    </div>
+  </header>
+  
+
+  <!-- 🔹 محتوای محصول -->
+  <main class="product-detail">
+    <a href="/" class="back-btn" data-key="back">⬅ بازگشت به محصولات</a>
+
+    <img src="{{ url_for('static', filename='images/X7A.png') }}" alt="X7a Board">
+
+    <section>
+      <h2 data-key="desc_title1">توضیحات</h2>
+      <p data-key="p2_desc">
+        برد X7-A Smart IoT یک کنترلر هوشمند و انعطاف‌پذیر است که برای اتوماسیون صنعتی، سیستم‌های BMS و کنترل تجهیزات HVAC طراحی شده است. این برد امکان جمع‌آوری داده از سنسورها، کنترل عملگرها و ارسال اطلاعات از طریق شبکه‌های Modbus RTU و MQTT را فراهم می‌کند. طراحی فشرده و صنعتی این محصول، آن را به گزینه‌ای ایده‌آل برای استفاده در پروژه‌های مانیتورینگ و کنترل مرکزی تبدیل کرده است.
+      </p>
+    </section>
+
+    <section>
+      <h2 data-key="features_title">ویژگی‌ها</h2>
+      <ul>
+        <li data-key="p2_feature1">مانیتورینگ دما، فشار، رطوبت و سایر سنسورها</li>
+        <li data-key="p2_feature2"></li>
+        <li data-key="p2_feature3">کنترل تجهیزات HVAC شامل چیلر، هواساز، فن‌کویل و پمپ‌ها</li>
+        <li data-key="p2_feature4">قابلیت تعریف Setpoint و برنامه‌ریزی زمان‌بندی (Scheduler)</li>
+        <li data-key="p2_feature5">انتقال داده به سرورهای ابری یا محلی از طریق MQTT Broker</li>
+        <li data-key="p2_feature6">پشتیبانی از پروتکل Modbus RTU برای اتصال به تجهیزات صنعتی</li>
+        <li data-key="p2_feature7">امکان استفاده به عنوان Slave یا Master در شبکه Modbus</li>
+        <li data-key="p2_feature8">رابط کاربری تحت وب ساده و کاربردی برای تنظیمات</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 data-key="apps_title">کاربردها</h2>
+      <ul>
+        <li data-key="p2_app1">BMS و مانیتورینگ ساختمان‌ها (چیلر، هواساز، فن پارکینگ و پمپ‌ها)</li>
+        <li data-key="p2_app2">اتوماسیون صنعتی و مانیتورینگ خطوط تولید</li>
+        <li data-key="p2_app3">کنترل و پایش گلخانه‌ها و مرغداری‌ها</li>
+        <li data-key="p2_app4">سیستم‌های انرژی و نیروگاهی</li>
+        <li data-key="p2_app5">اینترنت اشیاء (IoT) و مانیتورینگ از راه دور</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- 🔹 فوتر -->
+  <footer id="contact">
+    <p data-key="contact">
+      تماس: 
+      <a href="mailto:ehsansheikhy@gmail.com"><i class="fa-solid fa-envelope"></i> ehsansheikhy@gmail.com</a> | 
+      <a href="tel:+989123085827"><i class="fa-solid fa-phone"></i> +98-912-308-5827</a> | 
+      <a href="https://www.linkedin.com/in/ehsan-sheikhy/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a> | 
+      <a href="https://www.instagram.com/yourusername" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+    </p>
+    <p data-key="footer_text">© 2025 NIK SARAN. All rights reserved.</p>
+  </footer>
+
+  <!-- 📌 جاوااسکریپت -->
+  <script src="{{ url_for('static', filename='lang.js') }}"></script>
+  
+</body>
+</html>
